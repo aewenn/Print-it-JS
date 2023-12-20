@@ -1,5 +1,7 @@
 // Carrousel
 
+// Tableau
+
 const slides = [
 	{
 		image: "slide1.jpg",
@@ -29,6 +31,9 @@ const ArrowRight = document.querySelector(".arrow_right");
 
 const dots = document.querySelector(".dots");
 let index = 0;
+
+// Constantes images et textes
+
 const img = document.querySelector("#banner .banner-img");
 const tagLine = document.querySelector("#banner p");
 
@@ -46,15 +51,24 @@ function displayDots() {
 }
 displayDots();
 
-// Clic gauche
+// Changements au clic gauche
 function leftclick() {
 	ArrowLeft.addEventListener("click", () => {
-		console.log("left");
+		const slideDots = document.querySelectorAll(".dots .dot");
+		slideDots[index].classList.remove("dot_selected");
+		index--;
+		console.log(slideDots);
+		if (index < 0) {
+			index = slides.length -1;
+		}
+		slideDots[index].classList.add("dot_selected");
+		img.src = `./assets/images/slideshow/${slides[index].image}`;
+		tagLine.innerHTML = `<p>${slides[index].tagLine}</p>`
 	});
 }
 leftclick();
 
-// Clic droit
+// Changements au clic droit
 function rightclick() {
 	ArrowRight.addEventListener("click", () => {
 		const slideDots = document.querySelectorAll(".dots .dot");
@@ -70,6 +84,5 @@ function rightclick() {
 	});
 }
 rightclick();
-
 
 
