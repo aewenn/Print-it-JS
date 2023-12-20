@@ -57,11 +57,14 @@ leftclick();
 // Clic droit
 function rightclick() {
 	ArrowRight.addEventListener("click", () => {
+		const slideDots = document.querySelectorAll(".dots .dot");
+		slideDots[index].classList.remove("dot_selected");
 		index++;
-		console.log(index);
-		if (index > slides.length) {
+		console.log(slideDots);
+		if (index > slides.length - 1) {
 			index = 0;
 		}
+		slideDots[index].classList.add("dot_selected");
 		img.src = `./assets/images/slideshow/${slides[index].image}`;
 		tagLine.innerHTML = `<p>${slides[index].tagLine}</p>`
 	});
