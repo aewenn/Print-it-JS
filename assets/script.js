@@ -1,6 +1,6 @@
-// Carrousel
+// Carousel
 
-// Tableau
+// Array
 
 const slides = [
 	{
@@ -21,22 +21,22 @@ const slides = [
 	}
 ];
 
-// Constantes des flèches
+// Arrows constants
 
 const ArrowLeft = document.querySelector(".arrow_left");
 const ArrowRight = document.querySelector(".arrow_right");
 
-// Autres variables
+// Others variables
 
 const dots = document.querySelector(".dots");
 let index = 0;
 
-// Constantes images et textes
+// Images/texts constants
 
 const img = document.querySelector("#banner .banner-img");
 const tagLine = document.querySelector("#banner p");
 
-// Affichage des dots
+// Display dots
 
 function displayDots() {
 	for (let i = 0; i < slides.length; i++) {
@@ -50,13 +50,13 @@ function displayDots() {
 }
 displayDots();
 
-// Changements au clic gauche
+// Left click changes
+
 function leftclick() {
 	ArrowLeft.addEventListener("click", () => {
 		const slideDots = document.querySelectorAll(".dots .dot");
 		slideDots[index].classList.remove("dot_selected");
 		index--;
-		console.log(slideDots);
 		if (index < 0) {
 			index = slides.length -1;
 		}
@@ -67,13 +67,13 @@ function leftclick() {
 }
 leftclick();
 
-// Changements au clic droit
+// Right click changes
+
 function rightclick() {
 	ArrowRight.addEventListener("click", () => {
 		const slideDots = document.querySelectorAll(".dots .dot");
 		slideDots[index].classList.remove("dot_selected");
 		index++;
-		console.log(slideDots);
 		if (index > slides.length - 1) {
 			index = 0;
 		}
